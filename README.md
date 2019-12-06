@@ -6,7 +6,7 @@ This solution give the ability to select multiple members from the people picker
 
 ## Usage
 
-Option 1 - import the zip file directly into CDS. Managed or Unmanaged Solution.
+Option 1 - Import the zip file directly into CDS. Managed or Unmanaged Solution.
 
 Option 2 
 - git clone the repo
