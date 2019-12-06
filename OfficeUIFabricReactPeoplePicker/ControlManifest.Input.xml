@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="PowerApps.PCF" constructor="OfficeUIFabricReactPeoplePicker" version="0.0.1" display-name-key="OfficeUIFabricReactPeoplePicker" description-key="OfficeUIFabricReactPeoplePicker description" control-type="standard">
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+    <property name="fieldValue" display-name-key="fieldValue" description-key="field_Value" of-type="Multiple" usage="bound" required="true" />
+    <property name="entityName" display-name-key="entityName" description-key="entity_Name" of-type="SingleLine.Text" usage="input" required="true" default-value="systemuser"/>
+    <property name="fieldNames" display-name-key="fieldNames"  description-key="field_Names" of-type="Multiple" usage="input" required="true" default-value="fullname,internalemailaddress"/>
+    <resources>
+      <code path="index.ts" order="1"/>
+    </resources>
+       <feature-usage>
+			<uses-feature name="WebAPI" required="true" />
+		</feature-usage>
+  </control>
+</manifest>
