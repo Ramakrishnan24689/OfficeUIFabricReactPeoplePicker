@@ -42,7 +42,6 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 		// Add code to update control view
 		let tempPeople: any = [];
 		let People: any = [];
-		this.props.preselectedpeople = context.parameters.fieldValue.raw;
 		tempPeople = await this._context.webAPI
 			.retrieveMultipleRecords(context.parameters.entityName.raw!, "?$select=" + context.parameters.fieldNames.raw!);
 		await Promise.all(tempPeople.entities.map((entity: any) => {
