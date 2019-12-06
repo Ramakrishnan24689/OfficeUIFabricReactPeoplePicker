@@ -1,7 +1,11 @@
 # OfficeUIFabricReactPeoplePicker
-A PCF component for Multi select people picker
+
+A PCF component for Multi select people picker. 
+
+This solution give the ability to select multiple members from the people picker. It works on the User(system) entity of common data services.
 
 ## Usage
+
 Option 1 - import the zip file directly into CDS. Managed or Unmanaged Solution.
 
 Option 2 
