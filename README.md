@@ -11,7 +11,7 @@ Option 2
 
 ## Glimpse of the sample 
 
-![](assets/PeoplePicker.gif)
+![](assets/Peoplepicker.gif)
 
 ## For packaging & deploying the solution, refer the below link
 
