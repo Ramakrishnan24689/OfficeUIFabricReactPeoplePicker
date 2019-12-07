@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BaseComponent } from 'office-ui-fabric-react/lib/Utilities';
 import { IPersonaProps } from 'office-ui-fabric-react/lib/Persona';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
+import { IInputs } from "./generated/ManifestTypes";
 
 import {
   IBasePickerSuggestionsProps,
@@ -18,6 +19,7 @@ export interface IPeoplePersona {
 export interface IPeopleProps {
   people?: any;
   preselectedpeople?: any;
+  context?: ComponentFramework.Context<IInputs>;
   peopleList?: (newValue: any) => void;
 }
 
@@ -76,10 +78,8 @@ export class PeoplePickerTypes extends BaseComponent<any, IPeoplePickerState> {
         onItemSelected={this._onItemSelected}
         inputProps={{
           onBlur: (ev: React.FocusEvent<HTMLInputElement>) => {
-            console.log("timeout blur");
           },
           onFocus: (ev: React.FocusEvent<HTMLInputElement>) => {
-            console.log("timeout focus");
           },
           'aria-label': 'People Picker'
         }}
@@ -151,15 +151,31 @@ export class PeoplePickerTypes extends BaseComponent<any, IPeoplePickerState> {
     limitResults?: number
   ): any => {
     if (filterText) {
-      let filteredPersonas: IPersonaProps[] = this._filterPersonasByText(filterText);
-
-      filteredPersonas = this._removeDuplicates(filteredPersonas, currentPersonas!);
-      filteredPersonas = limitResults ? filteredPersonas.splice(0, limitResults) : filteredPersonas;
-      return this._filterPromise(filteredPersonas);
+      return this._searchUsers(filterText);
     } else {
       return [];
     }
   };
+
+
+  private _searchUsers(filterText: string): IPersonaProps[] | Promise<IPersonaProps[]> {
+    return new Promise(async (resolve: any, reject: any) => {
+      let People: IPersonaProps[] = [];
+      try {
+        let tempPeople: any = [];
+        tempPeople = await this.props.context.webAPI.retrieveMultipleRecords(this.props.context.parameters.entityName.raw!, "?$select=fullname,internalemailaddress&$filter=startswith(fullname,'" + filterText + "')");
+        await Promise.all(tempPeople.entities.map((entity: any) => {
+          People.push({ "text": entity.fullname, "secondaryText": entity.internalemailaddress }); //change fieldname if values are different
+        }));
+        resolve(People);
+      }
+      catch (err) {
+        console.log(err);
+        reject(People);
+      }
+    });
+  }
+
 
   private _returnMostRecentlyUsed = (currentPersonas: any): IPersonaProps[] | Promise<IPersonaProps[]> => {
     let { mostRecentlyUsed } = this.state;
