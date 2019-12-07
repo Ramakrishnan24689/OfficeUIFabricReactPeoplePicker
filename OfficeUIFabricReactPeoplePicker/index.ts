@@ -2,6 +2,7 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { PeoplePickerTypes, IPeopleProps, IPeoplePersona } from './Peoplepicker';
+import { IPersona } from "office-ui-fabric-react/lib/Persona";
 
 export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 	private theContainer: HTMLDivElement;
@@ -11,6 +12,8 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 		//tableValue: this.numberFacesChanged.bind(this),
 		peopleList: this.peopleList.bind(this),
 	}
+	private _People: IPeoplePersona[] = [];
+	private _tempPeople: any = [];
 	/**
 	 * Empty constructor.
 	 */
@@ -38,14 +41,14 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 	 * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
 	 * @param context The entire property bag available to control via Context Object; It contains values as set up by the customizer mapped to names defined in the manifest, as well as utility functions
 	 */
-	public async updateView(context: ComponentFramework.Context<IInputs>) {
+	public async updateViewOld(context: ComponentFramework.Context<IInputs>) {
 		// Add code to update control view
 		let tempPeople: any = [];
 		let People: any = [];
 		tempPeople = await this._context.webAPI.retrieveMultipleRecords(context.parameters.entityName.raw!, "?$select=" + context.parameters.fieldNames.raw!);
 
 		await Promise.all(tempPeople.entities.map((entity: any) => {
-			People.push({ "text": entity.fullname, "secondaryText": entity.internalemailaddress }); //change fieldname if values are different
+			//this.People.push({ "text": entity.fullname, "secondaryText": entity.internalemailaddress }); //change fieldname if values are different
 		}));
 
 		this.props.people = People;
@@ -64,6 +67,56 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 			this.theContainer
 		);
 
+	}
+
+
+	/**
+	 * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
+	 * @param context The entire property bag available to control via Context Object; It contains values as set up by the customizer mapped to names defined in the manifest, as well as utility functions
+	 */
+	public async updateView(context: ComponentFramework.Context<IInputs>) {
+		await this.getAllUserCreatePicker(context, "?$select=" + context.parameters.fieldNames.raw!);
+	}
+
+
+	private async getAllUserCreatePicker(context: ComponentFramework.Context<IInputs>, query: string) {
+		return new Promise(async (resolve, reject) => {
+			try {
+				const url = (<any>context).page.getClientUrl() + "/api/data/v9.0/" + context.parameters.entityName.raw! + "s";
+				let tempResult: any = [];
+				tempResult = await this._context.webAPI.retrieveMultipleRecords(context.parameters.entityName.raw!, query);
+				this._tempPeople.push(tempResult.entities);
+
+				if (tempResult.nextLink !== undefined) {
+					query = tempResult.nextLink;
+					let splitValue = query.split(url);
+					query = splitValue[1];
+					await this.getAllUserCreatePicker(context, query);
+				}
+				else {
+					await Promise.all(this._tempPeople[0].map((entity: any) => {
+						this._People.push({ "text": entity.fullname, "secondaryText": entity.internalemailaddress });
+					}));
+
+					this.props.people = this._People;
+					if (context.parameters.fieldValue.raw !== null) {
+						if (context.parameters.fieldValue.raw!.indexOf("text") > 1) {
+							this.props.preselectedpeople = JSON.parse(context.parameters.fieldValue.raw!);
+						}
+					}
+					resolve(ReactDOM.render(
+						React.createElement(
+							PeoplePickerTypes,
+							this.props
+						),
+						this.theContainer
+					));
+				}
+			}
+			catch (err) {
+				console.log(err);
+			}
+		});
 	}
 
 	/** 
