@@ -4,7 +4,7 @@ A PCF component for Multi select people picker.
 
 This solution gives the ability to select multiple members from the people picker. It works on the User(systemuser) entity of common data services.
 
-Since multiselect peoplepicker is not there yet, this can be used as an alternate. It it build on top of Multiline text field.
+Since multiselect peoplepicker is not there yet, this can be used as an alternate. It is build on top of Multiline text field.
 
 # Dependencies
 office-ui-fabric-react : https://github.com/OfficeDev/office-ui-fabric-react
