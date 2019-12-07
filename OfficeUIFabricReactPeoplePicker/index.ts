@@ -10,7 +10,7 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 	private _context: ComponentFramework.Context<IInputs>;
 	private props: IPeopleProps = {
 		//tableValue: this.numberFacesChanged.bind(this),
-		peopleList: this.peopleList.bind(this),
+		peopleList: this.peopleList.bind(this)
 	}
 	private _People: IPeoplePersona[] = [];
 	private _tempPeople: any = [];
@@ -43,7 +43,7 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 	 */
 	public async updateViewOld(context: ComponentFramework.Context<IInputs>) {
 		// Add code to update control view
-		let tempPeople: any = [];
+		/*let tempPeople: any = [];
 		let People: any = [];
 		tempPeople = await this._context.webAPI.retrieveMultipleRecords(context.parameters.entityName.raw!, "?$select=" + context.parameters.fieldNames.raw!);
 
@@ -51,7 +51,7 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 			//this.People.push({ "text": entity.fullname, "secondaryText": entity.internalemailaddress }); //change fieldname if values are different
 		}));
 
-		this.props.people = People;
+		this.props.people = People;*/
 
 		if (context.parameters.fieldValue.raw !== null) {
 			if (context.parameters.fieldValue.raw!.indexOf("text") > 1) {
@@ -84,8 +84,8 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 			try {
 				const url = (<any>context).page.getClientUrl() + "/api/data/v9.0/" + context.parameters.entityName.raw! + "s";
 				let tempResult: any = [];
-				tempResult = await this._context.webAPI.retrieveMultipleRecords(context.parameters.entityName.raw!, query);
-				this._tempPeople.push(tempResult.entities);
+				tempResult = await this._context.webAPI.retrieveMultipleRecords(context.parameters.entityName.raw!, query, 5000);
+				this._tempPeople = this._tempPeople.concat(tempResult.entities);
 
 				if (tempResult.nextLink !== undefined) {
 					query = tempResult.nextLink;
@@ -94,7 +94,7 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 					await this.getAllUserCreatePicker(context, query);
 				}
 				else {
-					await Promise.all(this._tempPeople[0].map((entity: any) => {
+					await Promise.all(this._tempPeople.map((entity: any) => {
 						this._People.push({ "text": entity.fullname, "secondaryText": entity.internalemailaddress });
 					}));
 
