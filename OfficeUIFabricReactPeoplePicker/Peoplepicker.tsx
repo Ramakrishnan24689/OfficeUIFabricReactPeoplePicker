@@ -151,7 +151,9 @@ export class PeoplePickerTypes extends BaseComponent<any, IPeoplePickerState> {
     limitResults?: number
   ): any => {
     if (filterText) {
-      return this._searchUsers(filterText);
+      if (filterText.length > 2) {
+        return this._searchUsers(filterText);
+      }
     } else {
       return [];
     }
