@@ -11,7 +11,7 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 		//tableValue: this.numberFacesChanged.bind(this),
 		peopleList: this.peopleList.bind(this),
 	}
-	
+
 	/**
 	 * Empty constructor.
 	 */
@@ -70,7 +70,13 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 
 	private peopleList(newValue: IPeoplePersona[]) {
 		if (this.props.people !== newValue) {
-			this.props.people = newValue;
+			if (newValue.length === 0) {
+				this.props.people = undefined;
+			}
+			else {
+				this.props.people = newValue;
+			}
+
 			this.notifyOutputChanged();
 		}
 	}
