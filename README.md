@@ -2,16 +2,30 @@
 
 A PCF component for Multi select people picker. 
 
-This solution give the ability to select multiple members from the people picker. It works on the User(system) entity of common data services.
+This solution gives the ability to select multiple members from the people picker. It works on the User(systemuser) entity of common data services.
+
+Since multiselect peoplepicker is not there yet, this can be used as an alternate. It is build on top of Multiline text field.
+
+# Dependencies
+office-ui-fabric-react : https://github.com/OfficeDev/office-ui-fabric-react
+
+# Reference 
+
+Build using this example : https://developer.microsoft.com/en-us/fabric#/controls/web/peoplepicker
 
 ## Usage
 
-Option 1 - Import the zip file directly into CDS. Managed or Unmanaged Solution.
+### Step 1 - Import the solution
 
-Option 2 
-- git clone the repo
-- npm install
-- npm run build
+  Option 1 - Import the zip file directly into CDS. Managed or Unmanaged Solution.
+
+  Option 2 
+  - git clone the repo
+  - npm install
+  - npm run build
+  
+ ### Step 2 - Add the component
+ Create a Multiline text field and add the component.
 
 ## Glimpse of the sample 
 
