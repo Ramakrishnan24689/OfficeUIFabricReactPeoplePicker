@@ -42,6 +42,7 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 	public async updateView(context: ComponentFramework.Context<IInputs>) {
 		// Add code to update control view
 		this.props.context = context;
+		this.props.isPickerDisabled = context.mode.isControlDisabled;
 		if (context.parameters.peoplePicker.raw !== null) {
 			if (context.parameters.peoplePicker.raw!.indexOf("text") > 1) {
 				this.props.preselectedpeople = JSON.parse(context.parameters.peoplePicker.raw!);

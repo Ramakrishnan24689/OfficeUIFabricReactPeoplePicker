@@ -21,6 +21,7 @@ export interface IPeopleProps {
   preselectedpeople?: any;
   context?: ComponentFramework.Context<IInputs>;
   peopleList?: (newValue: any) => void;
+  isPickerDisabled?: boolean;
 }
 
 export interface IPeoplePickerState {
@@ -29,7 +30,6 @@ export interface IPeoplePickerState {
   peopleList: IPersonaProps[];
   mostRecentlyUsed: IPersonaProps[];
   currentSelectedItems?: IPersonaProps[];
-  isPickerDisabled?: boolean;
 }
 
 const suggestionProps: IBasePickerSuggestionsProps = {
@@ -55,8 +55,7 @@ export class PeoplePickerTypes extends BaseComponent<any, IPeoplePickerState> {
       delayResults: false,
       peopleList: this.props.people,
       mostRecentlyUsed: [],
-      currentSelectedItems: [],
-      isPickerDisabled: false
+      currentSelectedItems: []
     };
     initializeIcons();
     this.handleChange = this.handleChange.bind(this);
@@ -86,7 +85,7 @@ export class PeoplePickerTypes extends BaseComponent<any, IPeoplePickerState> {
         componentRef={this._picker}
         onInputChange={this._onInputChange}
         resolveDelay={300}
-        disabled={this.state.isPickerDisabled}
+        disabled={this.props.isPickerDisabled}
         onChange={() => this.handleChange()}
       />
     );
