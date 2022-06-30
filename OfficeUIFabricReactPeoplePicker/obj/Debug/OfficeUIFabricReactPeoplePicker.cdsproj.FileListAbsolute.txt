@@ -1,0 +1,2 @@
+C:\Source\Repos\PowerDynControls\OfficeUIFabricReactPeoplePicker-master\OfficeUIFabricReactPeoplePicker\obj\Debug\OfficeUIFabricReactPeoplePicker.cdsproj.AssemblyReference.cache
+C:\Source\Repos\PowerDynControls\OfficeUIFabricReactPeoplePicker-master\OfficeUIFabricReactPeoplePicker\obj\Debug\OfficeUIFabricReactPeoplePicker.cdsproj.CoreCompileInputs.cache

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="PowerApps.PCF" constructor="OfficeUIFabricReactPeoplePickerPCF" version="0.1.37" display-name-key="OfficeUIFabricReactPeoplePickerPCF" description-key="OfficeUIFabricReactPeoplePicker description" control-type="standard">
+  <control namespace="PowerApps.PCF" constructor="OfficeUIFabricReactPeoplePicker" version="0.1.37" display-name-key="OfficeUIFabricReactPeoplePickerPCF" description-key="OfficeUIFabricReactPeoplePicker description" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
       <type-group name="strings">
          <type>Multiple</type>

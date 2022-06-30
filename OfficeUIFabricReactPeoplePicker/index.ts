@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { PeoplePickerTypes, IPeopleProps, IPeoplePersona } from './Peoplepicker';
 
-export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+export class OfficeUIFabricReactPeoplePickerPCF implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 	private theContainer: HTMLDivElement;
 	private notifyOutputChanged: () => void;
 	private _context: ComponentFramework.Context<IInputs>;
@@ -42,17 +42,17 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 	public async updateView(context: ComponentFramework.Context<IInputs>) {
 		// Add code to update control view
 		this.props.context = context;
-		this.props.isPickerDisabled = context.mode.isControlDisabled;
+		const myProps = this.props;
 		if (context.parameters.peoplePicker.raw !== null) {
 			if (context.parameters.peoplePicker.raw!.indexOf("text") > 1) {
 				this.props.preselectedpeople = JSON.parse(context.parameters.peoplePicker.raw!);
 			}
 		}
-
+		ReactDOM.unmountComponentAtNode(this.theContainer);
 		ReactDOM.render(
 			React.createElement(
 				PeoplePickerTypes,
-				this.props
+				myProps
 			),
 			this.theContainer
 		);

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "QcCebbhfnwFf6ldPrtfJLjOgLPIs0wdLwHOH2EL5Sygf6LtODnoo07ckQxPBz4+V5zstGjkhbZKMm9feh65OrA==",
+  "success": true,
+  "projectFilePath": "C:\\Source\\Repos\\PowerDynControls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker\\OfficeUIFabricReactPeoplePickerPCF\\OfficeUIFabricReactPeoplePickerPCF.cdsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\david\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\david\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net462\\1.0.0\\microsoft.netframework.referenceassemblies.net462.1.0.0.nupkg.sha512",
+    "C:\\Users\\david\\.nuget\\packages\\microsoft.powerapps.msbuild.pcf\\1.16.6\\microsoft.powerapps.msbuild.pcf.1.16.6.nupkg.sha512",
+    "C:\\Users\\david\\.nuget\\packages\\microsoft.powerapps.msbuild.solution\\1.16.6\\microsoft.powerapps.msbuild.solution.1.16.6.nupkg.sha512"
+  ],
+  "logs": []
+}

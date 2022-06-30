@@ -1,0 +1,117 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Source\\Repos\\PowerDynControls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker\\OfficeUIFabricReactPeoplePickerPCF\\OfficeUIFabricReactPeoplePickerPCF.cdsproj": {}
+  },
+  "projects": {
+    "C:\\Source\\repos\\controls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker.pcfproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\repos\\controls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker.pcfproj",
+        "projectName": "OfficeUIFabricReactPeoplePicker",
+        "projectPath": "C:\\Source\\repos\\controls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker.pcfproj",
+        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\repos\\controls\\OfficeUIFabricReactPeoplePicker-master\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Microsoft.PowerApps.MSBuild.Pcf": {
+              "target": "Package",
+              "version": "[1.*, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Source\\Repos\\PowerDynControls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker\\OfficeUIFabricReactPeoplePickerPCF\\OfficeUIFabricReactPeoplePickerPCF.cdsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\Repos\\PowerDynControls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker\\OfficeUIFabricReactPeoplePickerPCF\\OfficeUIFabricReactPeoplePickerPCF.cdsproj",
+        "projectName": "OfficeUIFabricReactPeoplePickerPCF",
+        "projectPath": "C:\\Source\\Repos\\PowerDynControls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker\\OfficeUIFabricReactPeoplePickerPCF\\OfficeUIFabricReactPeoplePickerPCF.cdsproj",
+        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\Repos\\PowerDynControls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker\\OfficeUIFabricReactPeoplePickerPCF\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {
+              "C:\\Source\\repos\\controls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker.pcfproj": {
+                "projectPath": "C:\\Source\\repos\\controls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker.pcfproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.PowerApps.MSBuild.Solution": {
+              "target": "Package",
+              "version": "[1.*, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

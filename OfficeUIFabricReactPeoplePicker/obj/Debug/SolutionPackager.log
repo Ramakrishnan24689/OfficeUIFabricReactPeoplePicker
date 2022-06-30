@@ -1,0 +1,18 @@
+2022-06-22 07:15:32.076 - Info	
+Packing C:\Source\Repos\PowerDynControls\OfficeUIFabricReactPeoplePicker-master\OfficeUIFabricReactPeoplePicker\obj\Debug\Metadata to bin\Debug\OfficeUIFabricReactPeoplePicker.zip
+
+2022-06-22 07:15:32.084 - Info	Processing Component: Entities
+2022-06-22 07:15:32.086 - Info	Processing Component: Roles
+2022-06-22 07:15:32.088 - Info	Processing Component: Workflows
+2022-06-22 07:15:32.089 - Info	Processing Component: FieldSecurityProfiles
+2022-06-22 07:15:32.089 - Info	Processing Component: Templates
+2022-06-22 07:15:32.090 - Info	Processing Component: EntityMaps
+2022-06-22 07:15:32.090 - Info	Processing Component: EntityRelationships
+2022-06-22 07:15:32.093 - Info	Processing Component: OrganizationSettings
+2022-06-22 07:15:32.094 - Info	Processing Component: optionsets
+2022-06-22 07:15:32.095 - Info	Processing Component: CustomControls
+2022-06-22 07:15:32.102 - Info	Processing Component: SolutionPluginAssemblies
+2022-06-22 07:15:32.103 - Info	Processing Component: EntityDataProviders
+2022-06-22 07:15:32.136 - Info	
+Unmanaged Pack complete.
+
