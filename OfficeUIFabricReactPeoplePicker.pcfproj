@@ -8,7 +8,7 @@
   <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Pcf.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Pcf.props')"/>
   
   <PropertyGroup>
-    <Name>OfficeUIFabricReactPeoplePicker</Name>
+    <Name>OfficeUIFabricReactPeoplePickerPCF</Name>
     <ProjectGuid>7fdf0739-25ba-4809-8141-a2b31b635fa2</ProjectGuid>
     <OutputPath>$(MSBuildThisFileDirectory)out\controls</OutputPath>
   </PropertyGroup>

@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="PowerApps.PCF" constructor="OfficeUIFabricReactPeoplePicker" version="0.0.1" display-name-key="OfficeUIFabricReactPeoplePicker" description-key="OfficeUIFabricReactPeoplePicker description" control-type="standard">
+  <control namespace="PowerApps.PCF" constructor="OfficeUIFabricReactPeoplePickerPCF" version="0.1.37" display-name-key="OfficeUIFabricReactPeoplePickerPCF" description-key="OfficeUIFabricReactPeoplePicker description" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="peoplePicker" display-name-key="peoplePicker" description-key="field_Value" of-type="Multiple" usage="bound" required="true" />
-    <property name="entityName" display-name-key="entityName" description-key="entity_value" of-type="SingleLine.Text" usage="input" required="true" default-value="systemuser"/>
+      <type-group name="strings">
+         <type>Multiple</type>
+         <type>SingleLine.Text</type>   
+        <type>SingleLine.TextArea</type>
+      </type-group>
+    <property name="peoplePicker" display-name-key="peoplePicker" description-key="field_Value" of-type-group="strings" usage="bound" required="true" />
+    <property name="entityName" display-name-key="entityName" description-key="Systemuser, account, contact are only support entities" of-type="SingleLine.Text" usage="input" required="true" default-value="account"/>    
+    <property name="searchType" display-name-key="searchType" description-key="For Organization only. Options are ticker or blank. Blank searches name" of-type="SingleLine.Text" usage="input" required="false" default-value=""/>    
+    <property name="textFilterLength" display-name-key="textFilterLength" description-key="Number of characters typed before results start to come back" of-type="Whole.None" usage="input" required="false" default-value="3"/>        
+    <!--<property name="teamName" display-name-key="teamName" description-key="Systemuser only" of-type="SingleLine.Text" usage="input" required="false" default-value=""/>    -->
+    <property name="includeDisabled" display-name-key="includeDisabled" description-key="Value=1 to include disabled record. Value=0 search only active records" of-type="Whole.None" usage="input" required="true" default-value="0"/>    
+    <property name="filterQuery" display-name-key="query" description-key="Specify valid odata query" of-type="SingleLine.Text" usage="input" required="false" default-value=""/>    
+    <property name="queryPrimaryField" display-name-key="queryPrimaryField" description-key="Primary field to search (only if using on an entity other than user or customer)" of-type="SingleLine.Text" usage="input" required="false" default-value=""/>    
+    <property name="querySecondaryField" display-name-key="querySecondaryField" description-key="Secondary field return in results (not required)" of-type="SingleLine.Text" usage="input" required="false" default-value=""/>    
+    <property name="queryResultIdField" display-name-key="queryResultIdField" description-key="Specifiy the primary id of the entity" of-type="SingleLine.Text" usage="input" required="false" default-value=""/>    
+
    <resources>
       <code path="index.ts" order="1"/>
     </resources>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pXbzHwYo+j5ihjOPoR408rcGrEa+PKbbaL4ukrFJdQpJXLJJWMVF3ql0O7eWccAncxk9tRSVU6kr889QFzlJfw==",
+  "success": true,
+  "projectFilePath": "C:\\Source\\Repos\\PowerDynControls\\OfficeUIFabricReactPeoplePicker-master\\OfficeUIFabricReactPeoplePicker\\OfficeUIFabricReactPeoplePicker.cdsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\david\\.nuget\\packages\\microsoft.powerapps.msbuild.solution\\1.15.3\\microsoft.powerapps.msbuild.solution.1.15.3.nupkg.sha512"
+  ],
+  "logs": []
+}
