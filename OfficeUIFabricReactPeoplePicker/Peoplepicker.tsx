@@ -30,6 +30,7 @@ export interface IPeoplePickerState {
   peopleList: IPersonaProps[];
   mostRecentlyUsed: IPersonaProps[];
   currentSelectedItems?: IPersonaProps[];
+  key: string;
 }
 
 const suggestionProps: IBasePickerSuggestionsProps = {
@@ -55,11 +56,19 @@ export class PeoplePickerTypes extends BaseComponent<any, IPeoplePickerState> {
       delayResults: false,
       peopleList: this.props.people,
       mostRecentlyUsed: [],
-      currentSelectedItems: []
+      currentSelectedItems: [],
+      key: 'normal',
     };
     initializeIcons();
     this.handleChange = this.handleChange.bind(this);
   }
+
+  public componentDidUpdate(previousProps: any) {
+    if (previousProps.preselectedpeople !== this.props.preselectedpeople) {
+      this.setState({ key: this.state.key.concat('_1') })
+    }
+  }
+
 
   public render() {
     return (
@@ -69,7 +78,7 @@ export class PeoplePickerTypes extends BaseComponent<any, IPeoplePickerState> {
         getTextFromItem={this._getTextFromItem}
         pickerSuggestionsProps={suggestionProps}
         className={'ms-PeoplePicker'}
-        key={'normal'}
+        key={this.state.key}
         onRemoveSuggestion={this._onRemoveSuggestion}
         onValidateInput={this._validateInput}
         removeButtonAriaLabel={'Remove'}

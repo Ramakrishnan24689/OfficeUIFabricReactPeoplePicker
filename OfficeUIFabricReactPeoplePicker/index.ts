@@ -8,10 +8,9 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 	private notifyOutputChanged: () => void;
 	private _context: ComponentFramework.Context<IInputs>;
 	private props: IPeopleProps = {
-		//tableValue: this.numberFacesChanged.bind(this),
 		peopleList: this.peopleList.bind(this),
 	}
-
+	private previousSelectedPeople: string;
 	/**
 	 * Empty constructor.
 	 */
@@ -30,7 +29,6 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
 		// Add control initialization code
 		this.notifyOutputChanged = notifyOutputChanged;
-		this._context = context;
 		this.theContainer = container;
 	}
 
@@ -43,8 +41,9 @@ export class OfficeUIFabricReactPeoplePicker implements ComponentFramework.Stand
 		// Add code to update control view
 		this.props.context = context;
 		this.props.isPickerDisabled = context.mode.isControlDisabled;
-		if (context.parameters.peoplePicker.raw !== null) {
+		if (context.parameters.peoplePicker.raw !== null && this.previousSelectedPeople !== context.parameters.peoplePicker.raw) {
 			if (context.parameters.peoplePicker.raw!.indexOf("text") > 1) {
+				this.previousSelectedPeople = context.parameters.peoplePicker.raw;
 				this.props.preselectedpeople = JSON.parse(context.parameters.peoplePicker.raw!);
 			}
 		}
